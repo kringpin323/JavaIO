@@ -3,7 +3,7 @@ package Chapter05;
 import java.io.*;
 import java.security.*;
 
-
+// 实例回调，好处在哪里呢？
 public class InstanceCallbackDigest implements Runnable {
 
   private File input;

@@ -21,6 +21,7 @@ public class CallbackDigest implements Runnable {
       while ((b = din.read()) != -1) ;
       din.close();
       byte[] digest = sha.digest();
+      // »Øµ÷ callback
       CallbackDigestUserInterface.receiveDigest(digest, 
        input.getName());
     }

@@ -3,6 +3,7 @@ package Chapter05;
 import java.io.*;
 import java.security.*;
 
+// 从线程返回值的直觉方法
 public class ReturnDigest extends Thread {
 
   private File input;

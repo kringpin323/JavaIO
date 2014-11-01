@@ -18,6 +18,7 @@ public class ListCallbackDigestUserInterface implements DigestListener {
     t.start(); 
   }
   
+  // 自定义的处理 副线程生成结果的 回调 method
   public void digestCalculated(byte[] digest) {  
     this.digest = digest;
     System.out.println(this);

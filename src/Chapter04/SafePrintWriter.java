@@ -20,6 +20,17 @@ public class SafePrintWriter extends Writer {
   private boolean autoFlush = false;
   private String lineSeparator;
   private boolean closed = false;
+  
+  /*
+   * 测试变量
+   * */
+  // 提供一个 回压缓冲区，unread() 方法
+  // 将字节压到缓冲区中
+  // 
+  FilterInputStream abc;
+  PushbackInputStream abc2;
+  
+  
 
   public SafePrintWriter(Writer out, String lineSeparator) {
     this(out, false, lineSeparator);
@@ -70,7 +81,8 @@ public class SafePrintWriter extends Writer {
   }
 
   public void write(int c) throws IOException {
-
+	 // writer 类里面有个object lock ，就是this
+	  // 管理并发访问缓冲区
     synchronized (lock) {
       if (closed) throw new IOException("Stream closed");
       out.write(c);

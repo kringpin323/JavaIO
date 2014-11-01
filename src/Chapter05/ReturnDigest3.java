@@ -55,6 +55,15 @@ public class ReturnDigest3 implements Runnable {
       while (true) {
         // Now print the result
         byte[] digest = digests[i].getDigest();
+        // 轮询，新手解决方案
+        // 能起作用，以正确的顺序给出正确的答案，
+        // 但是做了大量不需要做的工作
+        // 这是通过无限循环来重复地轮询每个ReturnDigest对象，以查看是否结束
+        // 可以通过回调来处理
+        // 轮询是主线程不断问，是否结束了？
+        // 回调是 当副线程结束的时候，告诉主线程，我结束了，你可以开始了
+        // 线程在结束时要回头调用其创建者
+        // 主线程可以在等待的时候休息，不会占用运行线程的时间
         if (digest != null) {
           StringBuffer result = new StringBuffer(args[i]);
           result.append(": ");

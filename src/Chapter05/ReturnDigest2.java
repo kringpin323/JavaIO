@@ -62,6 +62,14 @@ public class ReturnDigest2 implements Runnable {
       System.out.println(result);
       
     }
+
+    /*
+     * 到底会得到正确的结果还是这个异常，取决于很多因素，包括程序生成了多少线程
+     * 系统的CPU和磁盘的相对速度，以及Java虚拟机为不同线程分配时间所用的算法
+     * 所有的这一切导致了数据不一致性的发生
+     * 这些称为竞争条件（race condition）
+     * 能否得到正确的结果，取决于一些我们无法控制的因素
+     * */
   
   }
 

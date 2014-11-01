@@ -18,6 +18,7 @@ public class ReturnDigest1UserInterface {
       // Now print the result
       StringBuffer result = new StringBuffer(f.toString());
       result.append(": ");
+      // 由于两线程并行，主线程运行到这里未必会计算完毕，很可能返回null，直观的方法这样使用有错误
       byte[] digest = dr.getDigest();
       for (int j = 0; j < digest.length; j++) {
         result.append(digest[j] + " ");
