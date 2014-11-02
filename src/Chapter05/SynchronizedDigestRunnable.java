@@ -21,10 +21,12 @@ public class SynchronizedDigestRunnable implements Runnable {
       while ((b = din.read()) != -1) ;
       din.close();
       byte[] digest = sha.digest();
+      // 同步 System.out 流
       synchronized (System.out) {
         System.out.print(input + ": ");
         for (int i = 0; i < digest.length; i++) {
-          System.out.print(digest[i] + " ");
+          // 四线程共享，System.out 这个流
+        	System.out.print(digest[i] + " ");
         }
         System.out.println();
       }
