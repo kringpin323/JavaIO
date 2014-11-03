@@ -10,6 +10,8 @@ public class PooledWeblog {
   private BufferedReader in;
   private BufferedWriter out;
   private int numberOfThreads;
+  
+  // 日志文件同步 class collection 缓存池
   private List entries = Collections.synchronizedList(new LinkedList());
   private boolean finished = false;
   private int test = 0;
