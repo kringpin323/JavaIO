@@ -1,7 +1,12 @@
 import java.net.*;
 import java.io.*;
 import java.util.*;
-    
+
+// 处理HTTP请求的线程池
+// 不行了，再这样下去一点东西都学不到，把这章科普玩稍微休息一下
+// 服务器优化：1. 使用JIT编译器
+// 2. 实现智能缓存
+// 3. NIO和通道代替线程和流？？？JDK 1.5 之后的事情
 public class RequestProcessor implements Runnable {
     
   private static List pool = new LinkedList();

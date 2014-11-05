@@ -2,11 +2,13 @@ import java.net.*;
 import java.io.*;
 import java.util.*;
 
+///　简单Http服务器
 public class SingleFileHTTPServer extends Thread {
 
   private byte[] content;
   private byte[] header;
-  private int port = 80;
+  private int port = 80; // 省略端口，默认 80
+  
 
   public SingleFileHTTPServer(String data, String encoding, 
    String MIMEType, int port) throws UnsupportedEncodingException {    
@@ -18,11 +20,12 @@ public class SingleFileHTTPServer extends Thread {
     
     this.content = data;
     this.port = port;
+    // 构造函数 建立一些信息，这些信息与HTTP首部一起发送
     String header = "HTTP/1.0 200 OK\r\n"
      + "Server: OneFile 1.0\r\n"
-     + "Content-length: " + this.content.length + "\r\n"
+     + "Content-length: " + this.content.length + "\r\n" // 内容长度
      + "Content-type: " + MIMEType + "\r\n\r\n";
-    this.header = header.getBytes("ASCII");
+    this.header = header.getBytes("ASCII"); // 编码方式 ： ASCII
 
   }
 

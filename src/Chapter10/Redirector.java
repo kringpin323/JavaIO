@@ -2,10 +2,11 @@ import java.net.*;
 import java.io.*;
 import java.util.*;
 
+// 一个HTTP重定向器
 public class Redirector implements Runnable {
 
   private int port;
-  private String newSite;
+  private String newSite; // 重定向地址
   
   public Redirector(String site, int port) {
     this.port = port;

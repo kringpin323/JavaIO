@@ -2,6 +2,8 @@ import java.net.*;
 import java.io.*;
 import java.util.*;
 
+// 完整的HTTP服务器，妈蛋，到底是我没心情看还是压根看不懂？还是时间太短了？
+// 
 public class JHTTP extends Thread {
 
   private File documentRootDirectory;
